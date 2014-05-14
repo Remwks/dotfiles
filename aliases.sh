@@ -1,5 +1,4 @@
 function display_command {
-  print -nP $PROMPT
   echo $*
 }
 
@@ -8,6 +7,10 @@ function explicit_alias {
   command=$2
   alias $alias="display_command '$command'; $command"
 }
+
+# Aliases management
+explicit_alias 'ae' 'subl ~/dotfiles/aliases.sh'
+explicit_alias 'ar' 'source ~/dotfiles/aliases.sh'
 
 # Moving to projects
 explicit_alias 'dotfiles' 'cd ~/dev/dotfiles; mvim'
@@ -18,18 +21,24 @@ explicit_alias 'dashboard' 'cd ~/code/dashboard; mvim'
 explicit_alias 'chefrep' 'cd ~/code/chef-repo; mvim'
 explicit_alias 'fanvoice' 'cd ~/code/fanvoice; mvim'
 explicit_alias 'wallmanager' 'cd ~/code/wallmanager; mvim'
-explicit_alias 'front' 'cd ~/code/monitoring; mvim'
+explicit_alias 'moni' 'cd ~/code/monitoring'
+explicit_alias 'bt' 'cd ~/code/tigerlily-bootstrap'
 explicit_alias 'back' 'cd ~/code/monitoring-api; mvim'
 
 explicit_alias 'backpr' 'open https://github.com/tigerlily/monitoring-api/pulls'
 
-explicit_alias 'code' 'cd ~/code'
+explicit_alias 'code' 'cd ~/code; subl'
 
 # SSH
 explicit_alias 'sshwallmanager' 'ssh deploy@factory1.tigerlilyplatform.com'
 explicit_alias 'sshtwitterlilyprod' 'ssh deploy@twitterlily.tigerlilyplatform.com'
 explicit_alias 'sshsiprod' 'ssh deploy@socialinbox.tigerlilyplatform.com'
 
+# Grunt
+explicit_alias stp './setup'
+explicit_alias sv 'grunt server'
+explicit_alias set 'grunt set'
+explicit_alias ngt 'grunt ngtemplates'
 
 # Custom utils
 explicit_alias bd 'bundle'
@@ -42,19 +51,19 @@ explicit_alias gruntt 'grunt test'
 # Vital git aliases
 explicit_alias gd 'git diff'
 explicit_alias gb 'git b'
-explicit_alias gnb 'git nb' # new branch aka checkout -b
+explicit_alias gnb 'git co -b' # new branch aka checkout -b
 explicit_alias gco 'git co'
 
-explicit_alias gplr 'git pull --rebase'
+explicit_alias gplr 'git pull --rebase origin'
 
 explicit_alias gs 'git status'
 explicit_alias gsh 'git show'
 
 explicit_alias gac 'git add -A .; git commit -m'
 explicit_alias ga 'git add -A'
-explicit_alias gcm 'git ci -m'
+explicit_alias gcm 'git commit -m'
 
-explicit_alias gps 'git push'
+explicit_alias gps 'git push origin'
 
 explicit_alias gst 'git stash'
 explicit_alias gsp 'git stash pop'
