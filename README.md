@@ -23,7 +23,9 @@ dotfiles
     . /usr/local/etc/bash_completion.d/git-prompt.sh
 
 
-    ### Prompt
+    Prompt
+    ------
+    '
 
     RED="\[\e[1;31m\]"
     LIGHT_GRAY="\[\e[1;35m\]"
@@ -49,3 +51,5 @@ dotfiles
     PROMPT_COMMAND=set_bash_prompt
 
     source ~/.bashrc
+
+'
